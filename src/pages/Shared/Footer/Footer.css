@@ -1,0 +1,66 @@
+.footer {
+    background: linear-gradient(rgba(30, 34, 34, 0.9), rgba(30, 34, 34, 0.9)), url('https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500') no-repeat fixed center center / cover;
+    padding: 20px 0;
+    color: #fff;
+}
+.footer-logo {
+    max-width: 100%;
+}
+.footer-title {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.footer-links .list-item {
+    background: transparent;
+    color: var(--brown);
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: left;
+}
+.footer-links .list-item:hover {
+    color: var(--blue);
+}
+
+.contact-us .MuiListItem-root {
+    padding: 0;
+    margin: 0;
+}
+
+.contact-us .MuiListItemText-primary {
+    color: var(--brown);
+}
+.contact-us .MuiAvatar-root svg {
+    color: var(--blue);
+}
+.contact-us .MuiListItemText-secondary {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+.footer .social-icons {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.footer .social-icons li {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+.footer .social-icons li svg {
+    font-size: 20px;
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+    color: var(--dark-brown);
+}
+.footer .social-icons li svg:hover {
+    opacity: 1;
+}

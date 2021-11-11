@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+:root {
+  --body-font: 'Atma', cursive;
+  --heading-font: 'Black Han Sans', sans-serif;
+  --blue: #0daacc;
+  --brown: #c17329;
+  --dark-brown: #89401f;
+}
