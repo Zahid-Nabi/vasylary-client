@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import logo from '../../../images/vasylary-logo.png';
 import LoginIcon from '@mui/icons-material/Login';
 import { ButtonGroup } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -21,9 +21,11 @@ const Header = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 
                     </Typography>
-                    <ButtonGroup variant="text" aria-label="text button group">
-                        <Button style={{ color: 'var(--dark-brown)', fontWeight: 600 }}>Login <LoginIcon /></Button>
-                    </ButtonGroup>
+                    <Link to='/login' style={{ textDecoration: 'none' }}>
+                        <ButtonGroup variant="text" aria-label="text button group">
+                            <Button style={{ color: 'var(--dark-brown)', fontWeight: 600 }}>Login <LoginIcon /></Button>
+                        </ButtonGroup>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </Box>

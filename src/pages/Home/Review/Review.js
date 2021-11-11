@@ -1,5 +1,5 @@
 
-import { Avatar, Rating, Stack } from '@mui/material';
+import { Avatar, Rating } from '@mui/material';
 import React from 'react';
 
 
