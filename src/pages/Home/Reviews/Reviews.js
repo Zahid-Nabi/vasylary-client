@@ -1,7 +1,9 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import React from 'react';
-import Slider from 'react-slick';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import Review from '../Review/Review';
+import './Reviews.css';
 
 const reviews = [
     {
@@ -72,17 +74,19 @@ const Reviews = () => {
         <section className="reviews">
             <Container>
                 <Typography style={{ textAlign: 'center' }} variant="h4"> Customers Review</Typography>
-                <Typography style={{ textAlign: 'center' }} variant="h6">What our customers say about VasyLary</Typography>
-                <Grid container spacing={2} style={{ margin: '20px 0' }}>
-                    {/* <Slider {...settings}> */}
+                <Typography style={{ textAlign: 'center', marginBottom: '20px' }} variant="h6">What our customers say about VasyLary</Typography>
+
+
+                <Carousel className="main-slider">
                     {
                         reviews.map(review => <Review
                             review={review}
                         ></Review>)
                     }
-                    {/* </Slider> */}
+                </Carousel>
 
-                </Grid>
+
+
             </Container>
         </section>
     );
