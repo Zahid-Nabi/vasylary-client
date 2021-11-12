@@ -2,8 +2,10 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import SendIcon from '@mui/icons-material/Send';
 import React from 'react';
+import useAuth from '../../../hooks/useAuth';
 
 const Details = () => {
+    const { user } = useAuth();
     return (
         <div className="orders" style={{ marginTop: '80px', padding: '50px 0' }}>
             <Container>
@@ -22,25 +24,57 @@ const Details = () => {
                             <form action="" style={{ width: '90%', maxWidth: '900px', margin: '30px auto' }}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm={6}>
-                                        <TextField id="standard-basic" label="Product Name" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Product Name"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <TextField id="standard-basic" label="Name" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Name"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                            defaultValue={user.displayName}
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <TextField id="standard-basic" label="Email" type="email" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Email"
+                                            type="email"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                            defaultValue={user.email}
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
-                                        <TextField id="standard-basic" label="Phone Number" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Phone Number"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={4}>
-                                        <TextField id="standard-basic" label="Address" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Address"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={4}>
-                                        <TextField id="standard-basic" label="City" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="City"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                        />
                                     </Grid>
                                     <Grid item xs={12} sm={4}>
-                                        <TextField id="standard-basic" label="Zip Code" style={{ width: '70%', marginBottom: '20px' }} variant="standard" />
+                                        <TextField
+                                            label="Zip Code"
+                                            style={{ width: '70%', marginBottom: '20px' }}
+                                            variant="standard"
+                                        />
                                     </Grid>
                                 </Grid>
                                 <Button type="submit" style={{ margin: '20px auto' }} variant="contained" endIcon={<SendIcon />}>
