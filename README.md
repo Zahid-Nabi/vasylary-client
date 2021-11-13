@@ -2,7 +2,7 @@
 # Vasy Lary 
 ## New and unique collection of pottery vases
 
-You may visit our website at [VasyLary](https:/).
+You may visit our website at [VasyLary](https://vasylary-73f5c.web.app/).
 
 We believe that our beautiful collection should be available for every home. Shop your favorite handmade stoneware online by adding each item to your online shopping basket. If you are looking for a cute gift for a friend, we make sure to gift wrap your items with no extra charges.
 
