@@ -15,10 +15,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import useAuth from '../../../hooks/useAuth';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
@@ -66,8 +63,8 @@ const Header = () => {
                         </Typography>
                         <Box className={navLinkContainer}>
                             <Link className={navItem} to="/home"><Button color="inherit">Home</Button></Link>
-                            <Link className={navItem} to="/allProducts"><Button color="inherit">All Products</Button></Link>
-                            <Link className={navItem} to="/orders"><Button color="inherit">Orders</Button></Link>
+
+
                             {
                                 user?.email && <>
                                     <Link className={navItem} to="/dashboard">
@@ -97,6 +94,11 @@ const Header = () => {
                                     </ButtonGroup>
                                 </Link>
                             }
+                            <Link to="allProducts" style={{ textDecoration: 'none' }}>
+                                <Button variant="contained" style={{ background: 'var(--brown)' }}>
+                                    Explore
+                                </Button>
+                            </Link>
                         </Box>
 
                         <IconButton
@@ -126,31 +128,58 @@ const Header = () => {
                             <List>
 
                                 <ListItem button>
-                                    <ListItemIcon>
-                                        <InboxIcon />
-                                    </ListItemIcon>
                                     <ListItemText>
                                         <Link className={mobileNavItem} to="/home"><Button color="inherit">Home</Button></Link>
                                     </ListItemText>
                                 </ListItem>
-                                <Divider />
+
                                 <ListItem button>
-                                    <ListItemIcon>
-                                        <MailIcon />
-                                    </ListItemIcon>
                                     <ListItemText>
-                                        <Link className={mobileNavItem} to="/allProducts"><Button color="inherit">All Products</Button></Link>
+                                        {
+                                            user?.email && <>
+                                                <Link className={navItem} to="/dashboard">
+                                                    <Button style={{ marginBottom: '25px' }} color="inherit" >Dashboard</Button>
+                                                </Link>
+
+                                                <Chip
+                                                    icon={<AccountCircleIcon />}
+                                                    label={user.displayName}
+                                                    color="success"
+                                                />
+                                            </>
+                                        }
                                     </ListItemText>
                                 </ListItem>
-                                <Divider />
                                 <ListItem button>
-                                    <ListItemIcon>
-                                        <InboxIcon />
-                                    </ListItemIcon>
                                     <ListItemText>
-                                        <Link className={mobileNavItem} to="/orders"><Button color="inherit">Orders</Button></Link>
+                                        {
+                                            user?.email ? <Link className={navItem} to='/' style={{ textDecoration: 'none' }}>
+                                                <ButtonGroup variant="text" aria-label="text button group">
+                                                    <Button
+                                                        style={{ color: 'var(--dark-brown)', fontWeight: 600 }}
+                                                        onClick={logout}
+                                                    >Logout <LogoutIcon /></Button>
+                                                </ButtonGroup>
+                                            </Link> : <Link className={navItem} to='/login' style={{ textDecoration: 'none' }}>
+                                                <ButtonGroup variant="text" aria-label="text button group">
+                                                    <Button style={{ color: 'var(--dark-brown)', fontWeight: 600 }}>Login <LoginIcon /></Button>
+                                                </ButtonGroup>
+                                            </Link>
+                                        }
                                     </ListItemText>
                                 </ListItem>
+
+                                <ListItem button>
+
+                                    <ListItemText>
+                                        <Link to="allProducts" style={{ textDecoration: 'none' }}>
+                                            <Button variant="contained" style={{ background: 'var(--brown)' }}>
+                                                Explore
+                                            </Button>
+                                        </Link>
+                                    </ListItemText>
+                                </ListItem>
+
 
                             </List>
 

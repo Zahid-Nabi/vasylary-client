@@ -1,68 +1,18 @@
 import { Container, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Review from '../Review/Review';
 import './Reviews.css';
 
-const reviews = [
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    }
-];
-
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data));
+    }, []);
 
     return (
         <section className="reviews">
@@ -74,6 +24,7 @@ const Reviews = () => {
                 <Carousel className="main-slider">
                     {
                         reviews.map(review => <Review
+                            key={review._id}
                             review={review}
                         ></Review>)
                     }

@@ -3,8 +3,9 @@ import { Avatar, Rating } from '@mui/material';
 import React from 'react';
 
 
-const Review = () => {
-
+const Review = (props) => {
+    const { name, ratting, review } = props.review;
+    const user_name = name;
     function stringToColor(string) {
         let hash = 0;
         let i;
@@ -39,12 +40,12 @@ const Review = () => {
         <div style={{ position: 'relative', height: '100%' }}>
             <div style={{ padding: '10px', marginTop: '30px' }}>
                 <p className="comment">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis blanditiis corporis facilis molestiae hic neque nemo ipsum minima, asperiores enim tempore explicabo magnam quis provident error omnis deleniti nam, incidunt animi mollitia ut reprehenderit odit vitae cumque? Quae aut, iste distinctio esse nobis sint tenetur aliquid eaque doloremque, ipsam nulla.
+                    {review}
                 </p>
-                <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                <Rating name="half-rating-read" defaultValue={ratting} precision={0.5} readOnly />
 
-                <Avatar style={{ margin: '10px auto' }} {...stringAvatar('Torikul Hasan')} />
-                <h6 style={{ marginTop: 0 }} className="customer-name">Zinarul Alam</h6>
+                <Avatar style={{ margin: '10px auto' }} {...stringAvatar(user_name)} />
+                <h6 style={{ marginTop: 0 }} className="customer-name">{user_name}</h6>
 
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaLinkedinIn, FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
-import { Avatar, Button, Container, Grid, List, ListItem, ListItemAvatar, ListItemText, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, List, ListItem, ListItemAvatar, ListItemText, TextField } from '@mui/material';
 import logo from '../../../images/vasylary-logo.png';
 import SendIcon from '@mui/icons-material/Send';
 

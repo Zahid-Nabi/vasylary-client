@@ -25,7 +25,7 @@ function App() {
           <Route exact path='/allProducts'>
             <AllProducts></AllProducts>
           </Route>
-          <PrivateRoute exact path='/orders'>
+          <PrivateRoute exact path='/orders/:id'>
             <Order></Order>
           </PrivateRoute>
           <Route exact path='/login'>

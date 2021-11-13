@@ -1,65 +1,14 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Product from '../Home/Product/Product';
 
-const products = [
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    },
-    {
-        name: 'Amphora',
-        desc: 'An amphora is a type of container with a pointed bottom and characteristic shape and size which fit tightly (and therefore safely) against each other in storage rooms and packages, tied together with rope and delivered by land or sea',
-        price: 140,
-        imgUrl: 'https://images.pexels.com/photos/7718452/pexels-photo-7718452.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-    }
-];
-
 const Products = () => {
+    const [allProducts, setAllProducts] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/products`)
+            .then(res => res.json())
+            .then(data => setAllProducts(data));
+    }, []);
     return (
         <section className="popular-products" style={{ marginTop: '80px' }}>
             <Container>
@@ -67,7 +16,8 @@ const Products = () => {
                 <Typography style={{ textAlign: 'center' }} variant="h6">We measure our quality standards</Typography>
                 <Grid container spacing={2} style={{ margin: '20px 0' }}>
                     {
-                        products.map(pd => <Product
+                        allProducts.map(pd => <Product
+                            key={pd._id}
                             product={pd}
                         ></Product>)
                     }

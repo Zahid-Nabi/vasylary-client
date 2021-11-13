@@ -10,8 +10,20 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
-        reset();
+
+        fetch(`http://localhost:5000/products`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('Product Added Successfully');
+                    reset();
+                }
+            });
+
     };
     return (
         <div className="register" style={{ padding: '20px 0' }}>

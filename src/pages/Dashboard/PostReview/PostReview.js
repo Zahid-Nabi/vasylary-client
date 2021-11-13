@@ -2,9 +2,6 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import useAuth from '../../../hooks/useAuth';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -15,8 +12,18 @@ const PostReview = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
-        reset();
+        fetch(`http://localhost:5000/reviews`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('Review Posted Successfully');
+                    reset();
+                }
+            });
     };
     return (
         <div className="register" style={{ padding: '20px 0' }}>

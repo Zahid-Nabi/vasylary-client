@@ -1,0 +1,12 @@
+.thead .trow {
+    background: var(--dark-brown);
+    color: #fff;
+}
+
+.tbody .trow:nth-child(2n){
+    background: lightcyan;
+}
+
+.tbody .trow:nth-child(2n+1){
+    background: lightpink;
+}

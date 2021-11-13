@@ -6,10 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavigationIcon from '@mui/icons-material/Navigation';
@@ -18,7 +16,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PayNow from '../PayNow/PayNow';
 import AddProduct from '../AddProduct/AddProduct';
-import { Button, ButtonGroup, Fab } from '@mui/material';
+import { Button, ButtonGroup, Container, Fab } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import {
     Switch,
@@ -30,6 +28,8 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import PostReview from '../PostReview/PostReview';
 import MyOrders from '../MyOrders/MyOrders';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import ManageOrders from '../ManageOrders/ManageOrders';
 
 const drawerWidth = 200;
 
@@ -50,17 +50,13 @@ function Dashboard(props) {
             <Divider />
             <List>
                 <ListItem button>
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
+
                     <ListItemText>
                         <Link to={`${url}`}>Dashboard</Link>
                     </ListItemText>
                 </ListItem>
                 <ListItem button>
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
+
                     <ListItemText>
                         <Link to={`${url}/paynow`}>Pay Now</Link>
                     </ListItemText>
@@ -68,17 +64,25 @@ function Dashboard(props) {
                 {
                     admin && <Box>
                         <ListItem button>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
+
                             <ListItemText>
                                 <Link to={`${url}/makeAdmin`}>Make Admin</Link>
                             </ListItemText>
                         </ListItem>
                         <ListItem button>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
+
+                            <ListItemText>
+                                <Link to={`${url}/manageOrders`}>Manage Orders</Link>
+                            </ListItemText>
+                        </ListItem>
+                        <ListItem button>
+
+                            <ListItemText>
+                                <Link to={`${url}/manageProducts`}>Manage Products</Link>
+                            </ListItemText>
+                        </ListItem>
+                        <ListItem button>
+
                             <ListItemText>
                                 <Link to={`${url}/addProduct`}>Add Product</Link>
                             </ListItemText>
@@ -86,17 +90,13 @@ function Dashboard(props) {
                     </Box>
                 }
                 <ListItem button>
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
+
                     <ListItemText>
                         <Link to={`${url}/postReview`}>Post Review</Link>
                     </ListItemText>
                 </ListItem>
                 <ListItem button>
-                    <ListItemIcon>
-                        <InboxIcon />
-                    </ListItemIcon>
+
                     <ListItemText>
                         <Link to={`${url}/myOrders`}>My Orders</Link>
                     </ListItemText>
@@ -109,7 +109,6 @@ function Dashboard(props) {
                         </Fab>
                     </Link>
                 </ListItem>
-
                 <ListItem>
                     <Link to='/' style={{ textDecoration: 'none', margin: '0 auto' }}>
                         <ButtonGroup variant="contained" aria-label="text button group">
@@ -194,13 +193,24 @@ function Dashboard(props) {
 
                 <Switch>
                     <Route exact path={path}>
-                        <h3>Welcome to the Dashboard</h3>
+                        <Container style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <Box style={{ width: '90%', maxWidth: '600px', textAlign: 'center' }}>
+                                <Typography variant="h4">VasyLary</Typography>
+                                <Typography style={{ marginBottom: '20px' }} variant="h5">Welcome to the Dashboard</Typography>
+                            </Box>
+                        </Container>
                     </Route>
                     <Route path={`${path}/paynow`}>
                         <PayNow></PayNow>
                     </Route>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageOrders`}>
+                        <ManageOrders></ManageOrders>
                     </AdminRoute>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
@@ -212,9 +222,6 @@ function Dashboard(props) {
                         <MyOrders></MyOrders>
                     </Route>
                 </Switch>
-
-
-
             </Box>
         </Box>
     );

@@ -23,7 +23,8 @@ const Banner = () => {
                         <Link to="allProducts" style={{ textDecoration: 'none' }}>
                             <Button variant="contained" style={{ background: 'var(--brown)' }}>
                                 Lets Visit
-                            </Button></Link>
+                            </Button>
+                        </Link>
                     </Grid>
                     <Grid item xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
                         <img style={{ width: "50%", margin: "30px 0" }} src={vase} alt="" />
