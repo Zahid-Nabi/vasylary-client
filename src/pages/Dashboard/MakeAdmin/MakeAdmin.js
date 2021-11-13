@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
     const [success, setSuccess] = useState(false);
     const onSubmit = data => {
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://pure-wave-29914.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

@@ -5,7 +5,7 @@ import Product from '../Home/Product/Product';
 const Products = () => {
     const [allProducts, setAllProducts] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://pure-wave-29914.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setAllProducts(data));
     }, []);

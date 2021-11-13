@@ -8,7 +8,7 @@ import Product from '../Product/Product';
 const PopularProducts = () => {
     const [popularProducts, setPopularProducts] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://pure-wave-29914.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setPopularProducts(data));
     }, []);

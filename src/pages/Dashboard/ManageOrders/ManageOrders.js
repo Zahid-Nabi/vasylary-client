@@ -14,7 +14,7 @@ const ManageOrders = () => {
     const [deleteOrder, setDeleteOrder] = useState(0);
     const [modifyOrder, setModifyOrder] = useState(0);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://pure-wave-29914.herokuapp.com/orders`)
             .then(res => res.json())
             .then(data => setManageOrders(data));
     }, [deleteOrder, modifyOrder]);
@@ -22,7 +22,7 @@ const ManageOrders = () => {
     const handleDelete = (id) => {
         const deleteConfirm = window.confirm("Are you really want to delete order?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://pure-wave-29914.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' }
             })
@@ -40,7 +40,7 @@ const ManageOrders = () => {
     const handleShipped = (id) => {
         const shippedConfirm = window.confirm("Is the order shipped?");
         if (shippedConfirm) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://pure-wave-29914.herokuapp.com/orders/${id}`, {
                 method: 'PUT',
                 headers: { 'content-type': 'application/json' }
             })

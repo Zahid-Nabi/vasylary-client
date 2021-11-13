@@ -9,7 +9,7 @@ const Details = (props) => {
     const id = props.id;
     const [selectedProduct, setSelectedProduct] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://pure-wave-29914.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setSelectedProduct(data));
     }, [id]);
@@ -20,7 +20,7 @@ const Details = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const orderDetails = { ...data, status: "Pending", price: price, imgURL: imgURL };
-        fetch('http://localhost:5000/orders', {
+        fetch('https://pure-wave-29914.herokuapp.com/orders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(orderDetails)

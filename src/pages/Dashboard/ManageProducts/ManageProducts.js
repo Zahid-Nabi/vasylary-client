@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const [manageProducts, setManageProducts] = useState([]);
     const [deleteProduct, setDeleteProduct] = useState(0);
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://pure-wave-29914.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setManageProducts(data));
     }, [deleteProduct]);
@@ -20,7 +20,7 @@ const ManageProducts = () => {
     const handleDelete = (id) => {
         const deleteConfirm = window.confirm("Are you really want to delete the product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            fetch(`https://pure-wave-29914.herokuapp.com/deleteProduct/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' }
             })
